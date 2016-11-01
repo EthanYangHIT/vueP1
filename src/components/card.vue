@@ -1,7 +1,7 @@
 <script>
     import {actions} from '../store';
 
-    export default{
+    export default {
         vuex: {
             actions: actions,
             getters: {
@@ -20,7 +20,7 @@
 <template>
     <div class="card">
         <head>
-            <img class="avatar" width="40" height="40" :alt="user.name" :src"use.img">
+            <img class="avatar" width="40" height="40" :alt="user.name" :src="use.img">
             <p class="name">{{user.name}}</p>
         </head>
         <footer>
@@ -33,7 +33,6 @@
 .card {
     padding: 12px;
     border-bottom: solid 1px #24272C;
-
     footer {
         margin-top: 10px;
     }
