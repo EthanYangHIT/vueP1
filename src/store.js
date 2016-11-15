@@ -3,11 +3,11 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
-const now = Date.now();
+const now = new Date();
 const store = new Vuex.Store({
     state: {
         user: {
-            name: 'coffce',
+            name: 'Ethan',
             img: 'dist/images/1.jpg'
         },
         sessions: [
@@ -46,12 +46,17 @@ const store = new Vuex.Store({
             }
         },
         SEND_MESSAGE({sessions,currentSessionId}, content){
+            console.log('in sendMessage');
+            //console.log('session' + sessions);
+            //console.log('currentSessionId' + currentSessionId);
             let session = sessions.find(item=> item.id === currentSessionId);
+            session.messages = session.messages || [];
             session.messages.push({
                 content: content,
-                date: Date.now(),
+                date: new Date(),
                 self: true
             });
+
         },
         SELECT_SESSION(state, id){
             state.currentSessionId = id;

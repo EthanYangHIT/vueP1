@@ -1,18 +1,11 @@
 {
-  "name": "vue-note",
-  "version": "1.0.0",
-  "description": "forked vue project for learning",
-  "main": "index.js",
+  "name": "vue-chat",
+  "description": "A Vue.js project",
+  "author": "coffcer",
   "scripts": {
     "dev": "webpack-dev-server --inline --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
-  "keywords": [
-    "vue",
-    "webpack"
-  ],
-  "author": "Ethan Yang",
-  "license": "MIT",
   "dependencies": {
     "babel-polyfill": "^6.13.0",
     "babel-runtime": "^6.0.0",

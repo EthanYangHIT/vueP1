@@ -1,26 +1,7 @@
-<script>
-    import {actions} from '../store';
-
-    export default {
-        vuex: {
-            actions: actions,
-            getters: {
-                user: ({user}) => user,
-            filterKey: ({filterKey}) => filteKey
-            }
-        },
-        method:{
-            onKeyup(e) {
-                this.search(e.target.value);
-            }
-        }
-    };
-</script>
-
 <template>
     <div class="card">
         <head>
-            <img class="avatar" width="40" height="40" :alt="user.name" :src="use.img">
+            <img class="avatar" width="40" height="40" :alt="user.name" :src="user.img">
             <p class="name">{{user.name}}</p>
         </head>
         <footer>
@@ -29,24 +10,48 @@
     </div>
 </template>
 
+<script type="text/ecmascript-6">
+    import { actions } from '../store';
+
+    export default {
+        vuex: {
+            actions: actions,
+            getters: {
+                user: ({user}) => user,
+                filterKey: ({filterKey}) => filterKey
+            }
+        },
+        methods: {
+            onKeyup(e) {
+                this.search(e.target.value);
+            }
+        }
+    };
+</script>
+
 <style scoped lang="less">
-.card {
-    padding: 12px;
-    border-bottom: solid 1px #24272C;
+    .card {
+        padding: 12px;
+        border-bottom: solid 1px #24272C;
+
     footer {
         margin-top: 10px;
     }
+
     .avatar, .name {
         vertical-align: middle;
     }
+
     .avatar {
         border-radius: 2px;
     }
+
     .name {
         display: inline-block;
         margin: 0 0 0 15px;
         font-size: 16px;
     }
+
     .search {
         padding: 0 10px;
         width: 100%;
@@ -59,5 +64,6 @@
         outline: none;
         background-color: #26292E;
     }
-}
+
+    }
 </style>

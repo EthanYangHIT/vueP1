@@ -1,19 +1,3 @@
-<script>
-    import {action} from '../store';
-    export default {
-        vuex: {
-            actions: action,
-            getters: {
-                sessions: ({sessions, filterKey}) => {
-                let result = sessions.filter(session => session.user.name.includes(filterKey));
-                return result;
-                },
-                currentId: ({currentSessionId}) => currentSessionId
-            }
-        }
-    };
-</script>
-
 <template>
     <div class="list">
         <ul>
@@ -25,29 +9,54 @@
     </div>
 </template>
 
+<script type="text/ecmascript-6">
+    import {actions} from '../store';
+    export default {
+        vuex: {
+            actions: actions,
+            getters: {
+                sessions: ({sessions, filterKey}) => {
+                    let result = sessions.filter(session => session.user.name.includes(filterKey));
+                    return result;
+                },
+                currentId: ({currentSessionId}) => currentSessionId
+            }
+        }
+    };
+</script>
+
 <style scoped lang="less">
-.list {
+    .list {
+
     li {
         padding: 12px 15px;
         border-bottom: 1px solid #292C33;
         cursor: pointer;
         transition: background-color .1s;
-    &:hover {
-         background-color: rgba(255, 255, 255, 0.03);
-     }
-    &.active {
-         background-color: rgba(255, 255, 255, 0.1);
-     }
+
+    &
+    :hover {
+        background-color: rgba(255, 255, 255, 0.03);
+    }
+
+    &
+    .active {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
     }
     .avatar, .name {
         vertical-align: middle;
     }
+
     .avatar {
         border-radius: 2px;
     }
+
     .name {
         display: inline-block;
         margin: 0 0 0 15px;
     }
+
     }
 </style>

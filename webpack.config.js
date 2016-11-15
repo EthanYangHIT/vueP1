@@ -17,7 +17,7 @@ module.exports = {
     resolveLoader: {
         root: path.join(__dirname, 'node_modules')
     },
-    modules: {
+    module: {
         loaders: [{
             test: /\.vue$/,
             loader: 'vue'
@@ -30,7 +30,7 @@ module.exports = {
             loader: 'vue-style-loader!css-loader'
         }, {
             test: /\.less$/,
-            loader: 'less-loader'
+            loader: 'vue-style-loader!css-loader!less-loader'
         }, {
             test: /\.(png|jpg|gif|svg)$/,
             loader: 'file',
@@ -43,7 +43,7 @@ module.exports = {
         historyApiFallback: true,
         noInfo: true
     },
-    devTool: '#eval-source-map'
+    devtool: '#eval-source-map'
 }
 
 if (process.env.NODE_ENV == 'production') {
