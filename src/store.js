@@ -32,31 +32,26 @@ const store = new Vuex.Store({
                     name: 'webpack',
                     img: 'dist/images/3.jpg'
                 },
-                message: []
+                messages: []
             }
         ],
         currentSessionId: 1,
         filterKey: ''
     },
     mutations: {
-        INIT_DATA(state){
+        INIT_DATA (state){
             let data = localStorage.getItem('vue-chat-session');
             if (data) {
                 state.session = JSON.parse(data);
             }
         },
-        SEND_MESSAGE({sessions,currentSessionId}, content){
-            console.log('in sendMessage');
-            //console.log('session' + sessions);
-            //console.log('currentSessionId' + currentSessionId);
+        SEND_MESSAGE ({sessions,currentSessionId}, content){
             let session = sessions.find(item=> item.id === currentSessionId);
-            session.messages = session.messages || [];
             session.messages.push({
                 content: content,
                 date: new Date(),
                 self: true
             });
-
         },
         SELECT_SESSION(state, id){
             state.currentSessionId = id;
